@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsumeIQueryableBehaviours.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunCastBehaviors.cs" />
@@ -46,6 +47,10 @@
     <ProjectReference Include="..\CastBehaviors\CastBehaviors.csproj">
       <Project>{4c0e4e9b-963c-4b6a-81e1-b5fb9efcd98f}</Project>
       <Name>CastBehaviors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IQueryableBehaviours\IQueryableBehaviours.csproj">
+      <Project>{00e6034c-0040-47fe-a2a8-28beb2ee6989}</Project>
+      <Name>IQueryableBehaviours</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
