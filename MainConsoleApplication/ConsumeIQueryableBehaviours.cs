@@ -8,33 +8,40 @@ namespace MainConsoleApplication
     {
         internal static void ConsumeIQueryableBehaivours()
         {
-            UseMyProvider();
+            Console.WriteLine($"========== Start {nameof(UseMyEnumerable)} ==========");
             UseMyEnumerable();
+            Console.WriteLine($"========== Start {nameof(UseMyQueryProvider)} ==========");
+            UseMyQueryProvider();
         }
-
-        private static void UseMyProvider()
-        {
-            var q1 = MyProvider.CreateQueryable<int>();
-            Console.Write("{0}\n", q1.Expression);
-
-            var q2 = q1.Where(x => x > 10);
-            Console.Write("{0}\n", q2.Expression);
-
-            var q3 = q2.OrderBy(x => x);
-            Console.Write("{0}\n", q3.Expression);
-
-            var q4 = q3.Select(x => x * x);
-            Console.Write("{0}\n", q4.Expression);
-        }
-
+        
         private static void UseMyEnumerable()
         {
             var e = new MyEnumerable();
-            var q = e.Where(x => x % 2 == 0);
-            foreach (var val in q)
+            var q2 = e.Where(x => x % 2 == 0);
+            var q3 = q2.Select(x => x * x);
+            foreach (var val in q3)
             {
-                Console.Write($"val is {val}");
+                Console.WriteLine($"{val}");
             }
+        }
+
+        private static void UseMyQueryProvider()
+        {
+            var q1 = MyQueryProvider.CreateQueryable<int>();
+            Console.WriteLine($"q1: {q1.Expression}");
+
+            var q2 = q1.Where(x => x % 2 == 0);
+            Console.WriteLine($"q2: {q2.Expression}");
+
+            var q3 = q2.Select(x => x * x);
+            Console.WriteLine($"q3: {q3.Expression}");
+            
+            // Executeメソッドがnullのみを返すのでこのforeachで"ランタイム"エラーとなる。
+            // foreachのコメントアウトを外してもコンパイルは通る。
+            //foreach (var val in q3) 
+            //{
+            //   Console.WriteLine($"{val}");
+            //}
         }
     }
 }

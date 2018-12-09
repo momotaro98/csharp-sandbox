@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace IQueryableBehaviours
 {
-    public class MyProvider : QueryProvider
+    public class MyQueryProvider : QueryProvider
     {
         public override string GetQueryText(Expression expression)
         {
@@ -12,12 +12,15 @@ namespace IQueryableBehaviours
 
         public override object Execute(Expression expression)
         {
+            // Linq to SQLやEntity Frameworkといった実際のLinq Providerは
+            // このExecuteを独自に実装しExpression(式木)から実際のクエリ(SQL)
+            // を対象のデータソースに対して発行する。
             return null;
         }
 
         public static IQueryable<T> CreateQueryable<T>()
         {
-            return new Query<T>(new MyProvider());
+            return new Query<T>(new MyQueryProvider());
         }
     }
 }

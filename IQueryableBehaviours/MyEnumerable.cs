@@ -18,7 +18,7 @@ namespace IQueryableBehaviours
 
         private IEnumerator<int> ReturnEnumerator()
         {
-            var intArray = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            var intArray = new int[] {4, 8, 7, 0, 6, 5, 1, 9, 3, 2};
             foreach (var val in intArray)
             {
                 yield return val;

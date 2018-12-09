@@ -50,8 +50,6 @@ namespace IQueryableBehaviours
             get { return this.provider; }
         }
 
-        // IEnumerable<T>の実装(つまりLINQを実現するために)必要なメソッドであり、反復子(iterator)を返す。
-        // ポイントはIQueryProviderのExecuteメソッドを実行することで反復子を返す点。
         public IEnumerator<T> GetEnumerator()
         {
             return ((IEnumerable<T>)this.provider.Execute(this.expression)).GetEnumerator();
