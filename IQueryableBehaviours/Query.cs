@@ -28,9 +28,6 @@ namespace IQueryableBehaviours
             if (expression == null) {
                 throw new ArgumentNullException("expression");
             }
-            if (!typeof(IQueryable<T>).IsAssignableFrom(expression.Type)) {
-                throw new ArgumentOutOfRangeException("expression");
-            }
             this.provider = provider;
             this.expression = expression;
         }
