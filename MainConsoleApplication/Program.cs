@@ -7,9 +7,11 @@ namespace MainConsoleApplication
     {
         public static void Main()
         {
-            Console.WriteLine($"========== Start {nameof(RunCastBehaviors)} ==========");
-            RunCastBehaviors();
+//            Console.WriteLine($"========== Start {nameof(RunCastBehaviors)} ==========");
+//            RunCastBehaviors();
             
+            Console.WriteLine($"========== Start {nameof(ConsumeIQueryableBehaivours)} ==========");
+            ConsumeIQueryableBehaivours();
         }
     }
     
