@@ -9,6 +9,7 @@ namespace MainConsoleApplication
         internal static void ConsumeIQueryableBehaivours()
         {
             UseMyProvider();
+            UseMyEnumerable();
         }
 
         private static void UseMyProvider()
@@ -24,6 +25,16 @@ namespace MainConsoleApplication
 
             var q4 = q3.Select(x => x * x);
             Console.Write("{0}\n", q4.Expression);
+        }
+
+        private static void UseMyEnumerable()
+        {
+            var e = new MyEnumerable();
+            var q = e.Where(x => x % 2 == 0);
+            foreach (var val in q)
+            {
+                Console.Write($"val is {val}");
+            }
         }
     }
 }
